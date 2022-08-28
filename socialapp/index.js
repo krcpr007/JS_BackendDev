@@ -13,7 +13,7 @@ app.get("/api/v1/instagram", (req, resp) => {
         username: "krcpr007",
         followers: 55,
         following: 66,
-        date: format.asString("dd[MM]-hh:mm:ss",new Date()),
+        date: format.asString("dd[MM]-hh:mm:ss", new Date()),
     };
     resp.status(200).json(instagramSocial);
 })
@@ -34,6 +34,9 @@ app.get("/api/v1/linkedin", (req, resp) => {
         date: Date.now(),
     };
     resp.status(200).json(instagramSocial);
+})
+app.get("/api/v1/:token", (req, resp) => {
+    resp.status(200).send({ "params": req.params.token })
 })
 app.listen(port, () => {
     console.log(`App is listing at Port ${port}`)
